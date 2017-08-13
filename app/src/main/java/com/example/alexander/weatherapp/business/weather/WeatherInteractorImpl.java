@@ -89,6 +89,10 @@ public class WeatherInteractorImpl implements WeatherInteractor {
 
     @Override
     public Single<List<Forecast>> getForecastByCityId(int cityId) {
-        return weatherApiRepository.getForecastByCityId(cityId);
+        return weatherApiRepository.getForecastByCityId(cityId)
+                .flatMap(forecastList -> Observable
+                        .fromArray(4, 12, 20, 28, 36)
+                        .map(forecastList::get)
+                        .toList());
     }
 }

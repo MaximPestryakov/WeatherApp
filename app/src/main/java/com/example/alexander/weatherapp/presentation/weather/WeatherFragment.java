@@ -87,7 +87,12 @@ public class WeatherFragment extends BaseFragment implements WeatherView {
 
         refreshLayout.setOnRefreshListener(presenter::update);
 
-        forecastList.setLayoutManager(new LinearLayoutManager(getContext()));
+        forecastList.setLayoutManager(new LinearLayoutManager(getContext()) {
+            @Override
+            public boolean canScrollVertically() {
+                return false;
+            }
+        });
         forecastAdapter = new ForecastAdapter();
         forecastList.setAdapter(forecastAdapter);
     }

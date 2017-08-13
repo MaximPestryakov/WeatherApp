@@ -4,25 +4,39 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context=".presentation.weather.WeatherFragment">
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
 
-        <com.example.alexander.weatherapp.view.WeatherWidget
-            android:id="@+id/weather_widget"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp" />
+            android:orientation="vertical"
+            tools:context=".presentation.weather.WeatherFragment">
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/forecast_list"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:listitem="@layout/item_forecast" />
+            <com.example.alexander.weatherapp.view.WeatherWidget
+                android:id="@+id/weather_widget"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp" />
 
-    </LinearLayout>
+            <android.support.v7.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/forecast_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    tools:listitem="@layout/item_forecast" />
+
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </android.support.v4.widget.SwipeRefreshLayout>
